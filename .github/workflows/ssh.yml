@@ -28,8 +28,13 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
 
-      - uses: kielabokkie/ssh-key-and-known-hosts-action@v1
+      - uses: tiyee/action-ssh@release
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          ssh-host: ${{ secrets.SSH_PUBLIC_IP }}
-          ssh-port: 22
+          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
+          host: ${{ secrets.SSH_PUBLIC_IP }}
+          port: 22
+          username: ubuntu
+          command: |
+            ls -al
+            cat .ssh/authorized_keys
+          
