@@ -28,14 +28,12 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
 
-      - uses: sebastianjnuwu/ssh-action-deploy@v3
+      - uses: appleboy/ssh-action@master
         with:
-          KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          IP: ${{ secrets.SSH_PUBLIC_IP }}
-          port: 22
-          USER: ubuntu
-          FOLDER: ~/cicd/
-          RUN: |
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          host: ${{ secrets.SSH_PUBLIC_IP }}          
+          username: ubuntu          
+          script: |
             ls -al
             cat .ssh/authorized_keys
           
