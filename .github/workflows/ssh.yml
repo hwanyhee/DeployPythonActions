@@ -35,5 +35,5 @@ jobs:
           username: ubuntu          
           script: |
             ls -al
-            echo Hello Linux Clound Server > ./cicd/hello.txt
+            echo 'Hello Linux Clound Server' > ./cicd/hello.txt
           
